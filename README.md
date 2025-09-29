@@ -1,4 +1,4 @@
-1) Full Adder – Verilog Project
+**1) Full Adder – Verilog Project**
 This is my first basic project as part of my learning journey with Soft Nexis Technologies.
 The project implements a 1-bit Full Adder using Verilog HDL and simulates it to verify the functionality.
 
@@ -17,7 +17,7 @@ Hands-on experience with writing and simulating Verilog code in Vivado.
 Familiarity with testbench creation for verifying design functionality.
 
 
-2) 4-Bit Ripple Carry Adder (RCA) Overview
+**2) 4-Bit Ripple Carry Adder (RCA) Overview**
 
 This repository contains a Verilog implementation of a **4-bit Ripple Carry Adder (RCA)**.  
 The design uses four 1-bit full adders connected in series to perform binary addition of two 4-bit numbers, along with a carry-in (`Cin`) and a carry-out (`Cout`).
