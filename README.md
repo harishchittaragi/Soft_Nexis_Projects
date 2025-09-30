@@ -17,6 +17,8 @@ Hands-on experience with writing and simulating Verilog code in Vivado.
 Familiarity with testbench creation for verifying design functionality.
 
 
+
+
 **2) 4-Bit Ripple Carry Adder (RCA) Overview**
 
 This repository contains a Verilog implementation of a **4-bit Ripple Carry Adder (RCA)**.  
@@ -36,3 +38,42 @@ A=0 B=0 Cin=1 => Sum=1 Cout=0
 A=6 B=9 Cin=0 => Sum=15 Cout=0
 
 This implementation demonstrates **binary addition with carry propagation**, handling both normal and overflow cases.
+
+
+
+
+**3) Full Adder – RTL to Gate-Level Synthesis (Vivado)**
+** Introduction**
+This project demonstrates the process of designing and synthesizing a 1-bit Full Adder in Verilog using Xilinx Vivado. The main goal is to understand how an RTL description is transformed into a gate-level netlist and mapped to FPGA device primitives.
+
+📂 **Files in This Repository**
+**Full_adder.v** → RTL design in Verilog
+**synth_script.tcl** → Vivado TCL script to automate synthesis
+**synthesized_netlist.v** → Gate-level netlist generated after synthesis
+**utilization_report.txt** → Resource usage report
+**timing_report.txt** → Timing summary report
+**docs/** → Screenshots of schematic, reports, and waveforms
+
+⚙️ **How to Run**
+1.Open Vivado in TCL mode or GUI.
+2.Run the provided synthesis script:  source synth_script.tcl
+3.After synthesis completes:
+    View the schematic (Tools → Netlist Viewers → Schematic).
+    Check synthesized_netlist.v for mapped LUTs/IBUFs/OBUFs.
+    Open utilization_report.txt and timing_report.txt for analysis.
+
+**Results**
+** Schematic:** Post-synthesis schematic shows the full adder mapped to FPGA LUT3 cells and buffers.
+ ** Netlist Snippet:** Example from synthesized_netlist.v:   
+             LUT3 #(.INIT(8'h96)) Sum_OBUF_inst_i_1 (.I0(cin_IBUF), .I1(a_IBUF), .I2(b_IBUF), .O(Sum_OBUF));
+             LUT3 #(.INIT(8'hE8)) Cout_OBUF_inst_i_1 (.I0(cin_IBUF), .I1(b_IBUF), .I2(a_IBUF), .O(Cout_OBUF));
+             IBUF a_IBUF_inst (.I(a), .O(a_IBUF));
+             OBUF Sum_OBUF_inst (.I(Sum_OBUF), .O(Sum));
+**Utilization Report:** Shows LUT/IO usage.
+**Timing Report:** Confirms achievable operating frequency.   
+
+**Learning Outcome**
+1.Understand how Verilog RTL is synthesized into gate-level design.
+2.Learn how Vivado maps logic into FPGA primitives (LUTs, I/O buffers).
+3.Analyze hardware resources and timing feasibility.
+
